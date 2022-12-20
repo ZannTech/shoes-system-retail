@@ -1,0 +1,33 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+
+RewriteRule ^login$ login.php
+RewriteRule ^login/$ login.php
+RewriteRule ^logout/$ logout.php
+RewriteRule ^logout$ logout.php
+RewriteRule ^404$ 404.php
+RewriteRule ^404/$ 404.php
+ 
+RewriteRule ^profile$ admin/index.php
+RewriteRule ^profile/$ admin/index.php
+RewriteRule ^dashboard$ admin/dashboard.php
+RewriteRule ^dashboard/$ admin/dashboard.php
+
+
+
+RewriteRule ^dashboard/delete_category.php$ admin/inc/delete_category.php
+RewriteRule ^dashboard/delete_brand.php$ admin/inc/delete_brand.php
+
+RewriteRule ^dashboard/([0-9a-zA-Z_-]+)$ admin/dashboard.php?&action=$1 [NC,L]
+RewriteRule ^dashboard/([0-9a-zA-Z_-]+)/$ admin/dashboard.php?&action=$1 [NC,L]
+
+RewriteRule ^dashboard/([0-9a-zA-Z_-]+)/([0-9a-zA-Z_-]+)$ admin/dashboard.php?&action=$1&subaction=$2 [NC,L]
+RewriteRule ^dashboard/([0-9a-zA-Z_-]+)/([0-9a-zA-Z_-]+)/$ admin/dashboard.php?&action=$1&subaction=$2 [NC,L]
+
+RewriteRule ^dashboard/([0-9a-zA-Z_-]+)/([0-9a-zA-Z_-]+)/([0-9a-zA-Z_-]+)$ admin/dashboard.php?&action=$1&subaction=$2&id=$3 [NC,L]
+RewriteRule ^dashboard/([0-9a-zA-Z_-]+)/([0-9a-zA-Z_-]+)/([0-9a-zA-Z_-]+)/$ admin/dashboard.php?&action=$1&subaction=$2&id=$3 [NC,L]
+
+
+RewriteRule ^([0-9a-zA-Z_-]+)$ app.php?&slug=$1 [NC,L]
+RewriteRule ^([0-9a-zA-Z_-]+)/$ app.php?&slug=$1 [NC,L]
